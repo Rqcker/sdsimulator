@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=..\..\node_modules/@sdeverywhere/check-core/schema/check.schema.json
+
+#
+# This file contains "check" tests that exercise your model under different input
+# scenarios.  For more guidance, consult this wiki page:
+#   https://github.com/climateinteractive/SDEverywhere/wiki/Testing-and-Comparing-Your-Model
+#
+
+# NOTE: The following is an example of a simple check just to get you started.
+# Replace "Some output" with the name of some variable you'd like to test.
+- describe: Some output
+  tests:
+    - it: should be > 0 for all input scenarios
+      scenarios:
+        - preset: matrix
+      datasets:
+        - name: Some output
+      predicates:
+        - gt: 0

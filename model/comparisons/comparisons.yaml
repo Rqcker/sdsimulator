@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=..\..\node_modules/@sdeverywhere/check-core/schema/comparison.schema.json
+
+#
+# This file contains definitions of custom comparison scenarios, which allow you to see
+# how the behavior of the model compares to that of previous versions.  For more guidance,
+# consult the following wiki page:
+#   https://github.com/climateinteractive/SDEverywhere/wiki/Testing-and-Comparing-Your-Model
+#
+
+# NOTE: The following is an example of a custom scenario just to get you started.
+# Replace "Some input" and "Another input" with the names of some variables you'd
+# like to test.
+- scenario:
+    title: Custom scenario
+    subtitle: gradual ramp-up
+    with:
+      - input: Some input
+        at: 10
+      - input: Another input
+        at: 20
