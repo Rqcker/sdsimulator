@@ -13,6 +13,19 @@ const selectedGraphKey = 'model-explorer-selected-graph'
 
 let model
 let graphView
+let graphView1
+
+// ResetZoom
+const ResetZoomButton = document.getElementById("resetZoom");
+ResetZoomButton.onclick = function() {
+  // console.log(graphView)
+  graphView.chart.resetZoom();
+}
+
+const ResetZoomButton1 = document.getElementById("resetZoom1");
+ResetZoomButton1.onclick = function() {
+  graphView1.chart.resetZoom();
+}
 
 /**
  * Return the base (English) string for the given key.
@@ -34,7 +47,7 @@ function format(num, formatString) {
     case '.2f':
       return num.toFixed(2)
     case '.0M':
-      return num/1000000 + 'M'
+      return (num/1000000).toFixed(0) + 'M'
     default:
       return num.toString()
   }
@@ -228,52 +241,113 @@ function showGraph(graphSpec) {
     legendContainer.append(itemElem)
   }
 
+  // Show the title for the graph
+  const titleContainer = $('#top-graph-title');
+  titleContainer.text(str(graphSpec.titleKey));
+
   // Save the graph ID so that this graph is selected by default when the page is reloaded
   localStorage.setItem(selectedGraphKey, graphSpec.id)
 }
 
-function addGraphItem(graphSpec, selected) {
-  const title = str(graphSpec.menuTitleKey || graphSpec.titleKey)
-  const selectedAttr = selected ? 'selected' : ''
-  const option = $(`<option value="${graphSpec.id}" ${selectedAttr}>${title}</option>`).data(graphSpec)
-  $('#graph-selector').append(option)
+
+function showGraph1(graphSpec) {
+  if (graphView1) {
+    // Destroy the old view before switching to a new one
+    graphView1.destroy()
+  }
+
+  // Create a new GraphView that targets the canvas element
+  const canvas = $('#top-graph-canvas1')[0]
+  const viewModel = createGraphViewModel(graphSpec)
+  const options = {
+    fontFamily: 'Helvetica, sans-serif',
+    fontStyle: 'bold',
+    fontColor: '#231f20'
+  }
+  const tooltipsEnabled = true
+  const xAxisLabel = graphSpec.xAxisLabelKey ? str(graphSpec.xAxisLabelKey) : ''
+  const yAxisLabel = graphSpec.yAxisLabelKey ? str(graphSpec.yAxisLabelKey) : ''
+  graphView1 = new GraphView(canvas, viewModel, options, tooltipsEnabled, xAxisLabel, yAxisLabel)
+
+  // Show the legend items for the graph
+  const legendContainer = $('#top-graph-legend1')
+  legendContainer.empty()
+  for (const itemSpec of graphSpec.legendItems) {
+    const attrs = `class="graph-legend-item" style="background-color: ${itemSpec.color}"`
+    const label = str(itemSpec.labelKey)
+    const itemElem = $(`<div ${attrs}>${label}</div>`)
+    legendContainer.append(itemElem)
+  }
+
+  // Show the title for the graph
+  const titleContainer = $('#top-graph-title1');
+  titleContainer.text(str(graphSpec.titleKey));
+
+  // Save the graph ID so that this graph is selected by default when the page is reloaded
+  localStorage.setItem(selectedGraphKey, graphSpec.id)
 }
+
+
+// function addGraphItem(graphSpec, selected) {
+//   const title = str(graphSpec.menuTitleKey || graphSpec.titleKey)
+//   const selectedAttr = selected ? 'selected' : ''
+//   const option = $(`<option value="${graphSpec.id}" ${selectedAttr}>${title}</option>`).data(graphSpec)
+//   $('#graph-selector').append(option)
+// }
 
 /**
  * Initialize the UI for the graphs panel.
  */
 function initGraphsUI() {
   // Determine the initial graph
-  let initialGraphId = localStorage.getItem(selectedGraphKey)
-  if (initialGraphId === undefined || !coreConfig.graphs.has(initialGraphId)) {
-    if (coreConfig.graphs.size > 0) {
-      const firstGraphSpec = [...coreConfig.graphs.values()][0]
-      initialGraphId = firstGraphSpec.id
-    }
-  }
+  // let initialGraphId = localStorage.getItem(selectedGraphKey)
+  let firstGraphID, secondGraphID
+  const firstGraphSpec = [...coreConfig.graphs.values()][0]
+  const secondGraphSpec = [...coreConfig.graphs.values()][1]
+  firstGraphID = firstGraphSpec.id
+  secondGraphID = secondGraphSpec.id
+  
+  // if (initialGraphId === undefined || !coreConfig.graphs.has(initialGraphId)) {
+  //   if (coreConfig.graphs.size > 0) {
+  //     const firstGraphSpec = [...coreConfig.graphs.values()][0]
+  //     initialGraphId = firstGraphSpec.id
+  //   }
+  // }
 
   // Add the graph selector options
-  if (coreConfig.graphs.size > 0) {
-    for (const spec of coreConfig.graphs.values()) {
-      addGraphItem(spec, spec.id === initialGraphId)
-    }
-  } else {
-    $('#graph-selector').hide()
-    $('#top-graph-inner-container').text(`No graphs configured. You can edit 'config/graphs.csv' to get started.`)
-  }
+  // if (coreConfig.graphs.size > 0) {
+  //   for (const spec of coreConfig.graphs.values()) {
+  //     // addGraphItem(spec, spec.id === initialGraphId)
+  //     addGraphItem(spec, spec.id === firstGraphID)
+  //     addGraphItem(spec, spec.id === secondGraphID)
+  //   }
+  // } else {
+  //   $('#graph-selector').hide()
+  //   $('#top-graph-inner-container').text(`No graphs configured. You can edit 'config/graphs.csv' to get started.`)
+  // }
 
   // When a graph item is selected, show that graph
-  $('#graph-selector').on('change', function () {
-    const graphId = this.value
-    const graphSpec = coreConfig.graphs.get(graphId)
-    showGraph(graphSpec)
-  })
+  // $('#graph-selector').on('change', function () {
+  //   const graphId = this.value
+  //   const graphSpec = coreConfig.graphs.get(graphId)
+  //   showGraph(graphSpec)
+  // })
 
   // Show the initial graph
-  if (initialGraphId !== undefined) {
-    const initialGraphSpec = coreConfig.graphs.get(initialGraphId)
+  if (firstGraphID !== undefined) {
+    const initialGraphSpec = coreConfig.graphs.get(firstGraphID)
     if (initialGraphSpec !== undefined) {
+      // console.log(initialGraphSpec)
       showGraph(initialGraphSpec)
+    }
+  }
+
+  // Show the second graph
+  if (secondGraphID !== undefined) {
+    const initialGraphSpec1 = coreConfig.graphs.get(secondGraphID)
+    if (initialGraphSpec1 !== undefined) {
+      // console.log(initialGraphSpec1)
+      showGraph1(initialGraphSpec1)
     }
   }
 }
@@ -304,6 +378,9 @@ async function initApp() {
   model.onOutputsChanged = () => {
     if (graphView) {
       graphView.updateData()
+    }
+    if (graphView1) {
+      graphView1.updateData()
     }
   }
 }

@@ -20,6 +20,7 @@
     "@sdeverywhere/plugin-config": "^0.2.4",
     "@sdeverywhere/plugin-vite": "^0.1.8",
     "@sdeverywhere/plugin-wasm": "^0.2.3",
-    "@sdeverywhere/plugin-worker": "^0.2.3"
+    "@sdeverywhere/plugin-worker": "^0.2.3",
+    "chartjs-plugin-zoom": "^0.7.7"
   }
 }
