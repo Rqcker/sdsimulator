@@ -6,18 +6,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script type="module" crossorigin src="./index-qceWVsWN.js"></script>
-    <link rel="stylesheet" crossorigin href="./index-Cgxxsh5f.css">
+    <script type="module" crossorigin src="./index-DZGPWzYS.js"></script>
+    <link rel="stylesheet" crossorigin href="./index-BYDTl6vC.css">
   </head>
 
   <body>
-    <div id="graphs-container" class="main-section">
-      <select id="graph-selector"></select>
+    <div id="main-graph-container" class="main-graph-container">
+      <select id="graph-selector" hidden=""></select>
+
       <div class="graph-outer-container">
-        <div id="top-graph-inner-container" class="graph-inner-container">
-          <canvas id="top-graph-canvas"></canvas>
+        <div class="graph-container">
+          <div class="graph-header">
+            <button id="resetZoom" onclick="resetZoom()" class="zoom-buttons">Reset Zoom</button>
+            <div class="graph-title" id="top-graph-title"></div>
+          </div>
+          <div class="graph-inner-container">
+            <canvas id="top-graph-canvas"></canvas>
+          </div>
+          <div class="graph-legend-container">
+            <div id="top-graph-legend" class="graph-legend"></div>
+          </div>   
         </div>
-        <div id="top-graph-legend" class="graph-legend"></div>
+
+        <div class="graph-container">
+          <div class="graph-header">
+            <button id="resetZoom1" class="zoom-buttons">Reset Zoom</button>
+            <div class="graph-title" id="top-graph-title1"></div>
+          </div>
+          <div class="graph-inner-container">
+            <canvas id="top-graph-canvas1"></canvas>
+          </div>
+          <div class="graph-legend-container">
+            <div id="top-graph-legend1" class="graph-legend"></div>
+          </div>   
+        </div>
       </div>
     </div>
 
