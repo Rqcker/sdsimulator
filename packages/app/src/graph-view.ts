@@ -1,5 +1,8 @@
 import type { ChartConfiguration, ChartData, ChartDataSets } from 'chart.js'
 import { Chart } from 'chart.js'
+import zoomPlugin from 'chartjs-plugin-zoom';
+
+Chart.plugins.register(zoomPlugin);
 
 import type { GraphDatasetSpec, GraphSpec, OutputVarId, Series, StringKey } from '@core'
 
@@ -160,6 +163,11 @@ function createChart(canvas: HTMLCanvasElement, viewModel: GraphViewModel, optio
   applyFontOptions(chartJsConfig.options.scales.xAxes[0].ticks)
   applyFontOptions(chartJsConfig.options.scales.yAxes[0].ticks)
 
+  // Add double-click event listener to reset zoom
+  canvas.addEventListener('dblclick', () => {
+    zoomPlugin.zoom.resetZoom()
+  });
+
   return new Chart(canvas, chartJsConfig)
 }
 
@@ -207,7 +215,7 @@ function lineChartJsConfig(viewModel: GraphViewModel, data: ChartData): ChartCon
               // beginAtZero: true,
               min: spec.yMin,
               max: spec.yMax,
-              suggestedMax: spec.ySoftMax,
+              // suggestedMax: spec.ySoftMax,
               callback: value => {
                 return viewModel.formatYAxisTickValue(value as number)
               }
@@ -228,6 +236,35 @@ function lineChartJsConfig(viewModel: GraphViewModel, data: ChartData): ChartCon
           title: function(tooltipItems, data) {
             const title = tooltipItems[0].xLabel;
             return `Time(Year): ${title}`;
+          }
+        }
+      },
+      plugins: {
+        zoom: {
+          zoom: {
+            enabled: true,
+            mode: 'xy',
+            speed: 0.1,
+            rangeMin: {
+              // Format of min zoom range depends on scale type
+              x: -1,
+            },
+            rangeMax: {
+                // Format of max zoom range depends on scale type
+              x: 11,
+            },
+          },
+          pan: {
+            enabled: true,   // Enable panning
+            mode: 'xy',        // Allow panning in the x and y directions
+            rangeMin: {
+              // Format of min pan range depends on scale type
+              x: -1,
+            },
+            rangeMax: {
+                // Format of max pan range depends on scale type
+                x: 11,
+            },
           }
         }
       }
@@ -282,7 +319,8 @@ function createLineChartJsData(spec: GraphSpec): ChartData {
     }
 
     chartDataset.pointHitRadius = 3
-    chartDataset.pointHoverRadius = 0
+    chartDataset.pointHoverRadius = 3
+    chartDataset.pointRadius = 1.3
 
     chartDatasets.push(chartDataset)
   }
