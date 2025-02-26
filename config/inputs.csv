@@ -2,6 +2,5 @@ id,input type,viewid,varname,label,view level,group name,slider min,slider max,s
 1,slider,view1,Increase in available CCP info,Increase in available CCP info,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
 2,slider,view1,CCP price compensation incentives,CCP price compensation incentives,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
 3,slider,view1,Social 'pro' CCP attitude,Social 'pro' CCP attitude,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
-4,slider,view1,Rx incentives function effect on Rx rate,Rx incentives function effect on Rx rate,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
-5,slider,view1,Rx social norms function effect on Rx rate,Rx social norms function effect on Rx rate,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
-6,slider,view1,Rx user awareness function effect on Rx rate,Rx user awareness function effect on Rx rate,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
+4,slider,view1,Safety and Quality perception,Safety and Quality perception,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
+5,slider,view1,nCPperC,nCPperC,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,

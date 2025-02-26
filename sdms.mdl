@@ -806,21 +806,21 @@ $192-192-192,0,Times New Roman|10||0-0-0|0-0-0|0-0-255|-1--1--1|255-255-255|96,9
 V300  Do not put anything below this section - it will be ignored
 *View 2
 $192-192-192,0,Times New Roman|10|B|0-0-0|0-0-0|0-0-255|-1--1--1|128-255-255|96,96,69,0
-12,1,0,1180,242,300,200,0,15,0,8,1,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
+12,1,0,1366,242,300,200,0,15,0,8,1,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
 Consumers_and_Waste
-12,2,0,553,241,300,200,0,15,0,8,1,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
+12,2,0,739,241,300,200,0,15,0,8,1,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
 Retail_CCP_and_NCCP
-12,3,0,336,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
+12,3,0,522,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
 Increase in available CCP info,0,1,0.01
-12,4,0,596,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
+12,4,0,782,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
 CCP price compensation incentives,0,1,0.01
-12,5,0,857,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
+12,5,0,1043,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
 Social 'pro' CCP attitude,0,1,0.01
-12,6,0,1379,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
+12,6,0,1565,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
 nCPperC,0,10,1
-12,7,0,1674,232,182,102,8,7,0,12,-1,0,0,0,-1--1--1,255-255-0,|14||0-0-0,0,0,256,0,0,0
+12,7,0,1860,232,182,102,8,7,0,12,-1,0,0,0,-1--1--1,255-255-0,|14||0-0-0,0,0,256,0,0,0
 Legend:|<<NnN>>||<<NnN>>|CCP = Circular Chemical Products|<<NnN>>||<<NnN>>|NCCP = Non-Circular Chemical Products|<<NnN>>||<<NnN>>|nCPperC = Number of Chemical  Products |<<NnN>>|per Consumer
-12,8,0,1118,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
+12,8,0,1304,509,102,59,8,79,0,8,0,0,0,0,0-0-0,0-0-0,|14||0-0-0,0,0,0,0,0,0
 Safety and Quality perception,0,1,0.01
 \\\---/// Sketch information - do not modify anything except names
 V300  Do not put anything below this section - it will be ignored
@@ -835,33 +835,46 @@ $192-192-192,0,Times New Roman|10||0-0-0|0-0-0|0-0-255|-1--1--1|255-255-255|96,9
 :TITLE 0
 :SCALE
 :VAR Waste into Environment
+:DATASET 
 :VAR Waste Processed and Recycled
+:DATASET 
 :VAR Waste Captured and Sorted
+:DATASET 
 :VAR Buyers OBP
+:DATASET 
 :VAR Buyers RP
+:DATASET 
 
 :GRAPH Consumers_and_Waste
 :TITLE Consumers and Waste
 :STACK 0
 :SCALE
 :VAR consumers CCP
+:DATASET 
 :SCALE
 :VAR consumers NCCP
+:DATASET 
 :SCALE
 :VAR Waste Captured and Sorted
+:DATASET 
 :SCALE
 :VAR Waste into Environment
+:DATASET 
 
 :GRAPH CCE_policy_scenarios_0
 :TITLE CCE_policy_scenarios
 :SCALE
 :VAR Waste Captured and Sorted
+:DATASET 
 :SCALE
 :VAR Waste into Environment
+:DATASET 
 :SCALE
 :VAR consumers RP
+:DATASET 
 :SCALE
 :VAR consumers OBP
+:DATASET 
 
 :GRAPH Retail_CCP_and_NCCP
 :TITLE Circular Products and Non-Circular Products
@@ -870,25 +883,27 @@ $192-192-192,0,Times New Roman|10||0-0-0|0-0-0|0-0-255|-1--1--1|255-255-255|96,9
 :X-MIN 0
 :SCALE
 :VAR CCP bought
+:DATASET 
 :SCALE
 :VAR NCCP bought
+:DATASET 
 :SCALE
 :VAR CCP disposed
+:DATASET 
 :SCALE
 :VAR NCCP disposed
+:DATASET 
 :L<%^E!@
-1:.vdfx
-1:policyl game test 03.vdfx
-1:initial game test 03.vdfx
+1:policy game test 03.vdfx
 4:Time
-5:"% RF utilization for MNF"
+5:CCP bought
 9:policy game test 03
 19:69,1
 24:0
 25:10
 26:10
 12:game opt 0.vpd
-17:SD Simulator for CCE policy gaming version and dashboard 4 policies.vpmx
+23:0
 18:SDMS of CCE exended version.vsc
 20:SDMS of CCE extend version parvar0.lst
 15:0,0,0,0,0,0
