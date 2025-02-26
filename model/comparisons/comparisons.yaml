@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=..\..\node_modules/@sdeverywhere/check-core/schema/comparison.schema.json
+# yaml-language-server: $schema=../../node_modules/@sdeverywhere/check-core/schema/comparison.schema.json
 
 #
 # This file contains definitions of custom comparison scenarios, which allow you to see

@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=..\..\node_modules/@sdeverywhere/check-core/schema/check.schema.json
+# yaml-language-server: $schema=../../node_modules/@sdeverywhere/check-core/schema/check.schema.json
 
 #
 # This file contains "check" tests that exercise your model under different input
