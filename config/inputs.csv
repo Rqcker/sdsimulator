@@ -1,6 +1,6 @@
 id,input type,viewid,varname,label,view level,group name,slider min,slider max,slider/switch default,slider step,units,format,reversed,range 2 start,range 3 start,range 4 start,range 5 start,range 1 label,range 2 label,range 3 label,range 4 label,range 5 label,enabled value,disabled value,controlled input ids,listing label,description
-1,slider,view1,Increase in available CCP info,Increase in available CCP info,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
-2,slider,view1,CCP price compensation incentives,CCP price compensation incentives,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
-3,slider,view1,Social 'pro' CCP attitude,Social 'pro' CCP attitude,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
-4,slider,view1,Safety and Quality perception,Safety and Quality perception,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
-5,slider,view1,nCPperC,nCPperC,,Sliders,0,1,0.5,0.01,(units),,,,,,,,,,,,,,,,
+1,slider,view1,Increase in available CCP info,Increase in available CCP info,,Sliders,0,1,0.2,0.01,(units),,,,,,,,,,,,,,,,
+2,slider,view1,CCP price compensation incentives,CCP price compensation incentives,,Sliders,0,1,0.2,0.01,(units),,,,,,,,,,,,,,,,
+3,slider,view1,Social 'pro' CCP attitude,Social 'pro' CCP attitude,,Sliders,0,1,0.2,0.01,(units),,,,,,,,,,,,,,,,
+4,slider,view1,Safety and Quality perception,Safety and Quality perception,,Sliders,0,1,0.2,0.01,(units),,,,,,,,,,,,,,,,
+5,slider,view1,nCPperC,nCPperC,,Sliders,1,20,10,1,(units),,,,,,,,,,,,,,,,
