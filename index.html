@@ -1,51 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Model Explorer</title>
+    <title>Circular Chemistry System Dynamics Explorer</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script type="module" crossorigin src="./index-BrwqwVa_.js"></script>
-    <link rel="stylesheet" crossorigin href="./index-BYDTl6vC.css">
+    <meta name="description" content="Interactive system dynamics model for exploring circular economy transitions in the UK chemical manufacturing sector" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main script -->
+    <script type="module" crossorigin src="./index-CzKvRO6n.js"></script>
+    <link rel="stylesheet" crossorigin href="./index-CKTS4Nz5.css">
   </head>
-
+  
   <body>
-    <div id="main-graph-container" class="main-graph-container">
-      <select id="graph-selector" hidden=""></select>
-
-      <div class="graph-outer-container">
-        <div class="graph-container">
-          <div class="graph-header">
-            <button id="resetZoom" onclick="resetZoom()" class="zoom-buttons">Reset Zoom</button>
-            <div class="graph-title" id="top-graph-title"></div>
-          </div>
-          <div class="graph-inner-container">
-            <canvas id="top-graph-canvas"></canvas>
-          </div>
-          <div class="graph-legend-container">
-            <div id="top-graph-legend" class="graph-legend"></div>
-          </div>   
+    <!-- Header with Logo -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="logo-container">
+          <img src="https://raw.githubusercontent.com/Rqcker/ImageHosting/refs/heads/master/report/dcee/centre_circular_chem_logo.png" 
+               alt="Circular Chemical Economy Logo" 
+               class="site-logo">
         </div>
-
-        <div class="graph-container">
-          <div class="graph-header">
-            <button id="resetZoom1" class="zoom-buttons">Reset Zoom</button>
-            <div class="graph-title" id="top-graph-title1"></div>
-          </div>
-          <div class="graph-inner-container">
-            <canvas id="top-graph-canvas1"></canvas>
-          </div>
-          <div class="graph-legend-container">
-            <div id="top-graph-legend1" class="graph-legend"></div>
-          </div>   
+        <div class="title-container">
+          <h1>System Dynamics Interface</h1>
+          <p class="subtitle">Circular Economy Transitions in UK Chemical Manufacturing</p>
         </div>
       </div>
-    </div>
+    </header>
 
-    <div id="inputs-container" class="main-section">
-      <div id="inputs-content"></div>
-    </div>
+    <main class="main-content">
+      <!-- Navigation and Introduction -->
+      <section class="intro-section">
+        <p class="intro-text">
+          Explore dynamic scenarios and visualise outcomes through interactive charts. 
+          Adjust parameters using the sliders below to see how different factors impact the circular economy transition.
+        </p>
+      </section>
+      
+      <!-- Graph Section -->
+      <section id="main-graph-container" class="main-graph-container">
+        <select id="graph-selector" hidden=""></select>
+
+        <div class="graph-outer-container">
+          <div class="graph-container">
+            <div class="graph-header">
+              <div class="graph-title" id="top-graph-title"></div>
+              <button id="resetZoom" onclick="resetZoom()" class="zoom-button">
+                <span class="button-icon">↺</span> Reset Zoom
+              </button>
+            </div>
+            <div class="graph-inner-container">
+              <canvas id="top-graph-canvas"></canvas>
+            </div>
+            <div class="graph-legend-container">
+              <div id="top-graph-legend" class="graph-legend"></div>
+            </div>   
+          </div>
+
+          <div class="graph-container">
+            <div class="graph-header">
+              <div class="graph-title" id="top-graph-title1"></div>
+              <button id="resetZoom1" class="zoom-button">
+                <span class="button-icon">↺</span> Reset Zoom
+              </button>
+            </div>
+            <div class="graph-inner-container">
+              <canvas id="top-graph-canvas1"></canvas>
+            </div>
+            <div class="graph-legend-container">
+              <div id="top-graph-legend1" class="graph-legend"></div>
+            </div>   
+          </div>
+        </div>
+      </section>
+
+      <!-- Parameters Controls Section -->
+      <section class="parameters-section">
+        <h2 class="section-title">Model Parameters</h2>
+        <div id="inputs-container" class="inputs-container">
+          <div id="inputs-content" class="inputs-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>About This Project</h4>
+            <p>An interactive platform for exploring system dynamics models analysing circular economy transitions in the UK chemical manufacturing sector.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Contributors</h4>
+            <ul>
+              <li>Mr. Junhao Song</li>
+              <li>Mr. Yonghan Zhang</li>
+              <li>Dr. Rossen Kazakov</li>
+              <li>Prof. Bing Xu</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="https://github.com/climateinteractive/SDEverywhere" target="_blank">SDEverywhere</a></li>
+              <li><a href="https://vensim.com/" target="_blank">Vensim</a></li>
+              <li><a href="https://www.chartjs.org/" target="_blank">Chart.js</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Centre for Circular Chemical Economy. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
     <div class="overlay-container"></div>
   </body>
