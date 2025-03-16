@@ -109,6 +109,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- [SDEverywhere](https://github.com/climateinteractive/SDEverywhere) for enabling the translation of Vensim models to web interfaces
-- [Chart.js](https://github.com/chartjs) and [chartjs-plugin-zoom](https://github.com/chartjs/chartjs-plugin-zoom) for interactive visualisation capabilities
-- [Vensim](https://vensim.com/) for system dynamics modelling
+- [SDEverywhere](https://github.com/climateinteractive/SDEverywhere) for enabling the translation of Vensim models to web interfaces.
+- [Chart.js](https://github.com/chartjs) and [chartjs-plugin-zoom](https://github.com/chartjs/chartjs-plugin-zoom) for interactive visualisation capabilities.
+- [Vensim](https://vensim.com/) for system dynamics modelling.
+- This porject is funded by [UK Research and Innovation (UKRI) Interdisciplinary Centre for Circular Chemical Economy](https://www.circular-chemical.org/) (EP/V011863/1 and EP/V011863/2).
