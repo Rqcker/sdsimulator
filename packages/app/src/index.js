@@ -48,6 +48,12 @@ function format(num, formatString) {
       return num.toFixed(2)
     case '.0M':
       return (num/1000000).toFixed(0) + 'M'
+    case '.1M':
+      return (num/1000000).toFixed(1) + 'M'
+    case '.2M':
+      return (num/1000000).toFixed(2) + 'M'
+    case '.0k':
+      return (num/1000).toFixed(0) + 'k'
     default:
       return num.toString()
   }

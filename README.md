@@ -2,6 +2,10 @@
 
 A web-based interactive platform for exploring system dynamics models that analyse circular economy transitions in the UK chemical manufacturing sector. This project integrates a comprehensive System Dynamics (SD) model into an interactive web interface using SDEverywhere. The visualisation platform enables stakeholders to explore dynamic scenarios, adjust key parameters in real-time, and visualise the outcomes through interactive charts.
 
+📡 [**Offical Webpage**](https://www.circular-chemical.org/system-dynamics-simulator/)
+
+🔥 [**System Dynamics Interface**](https://junhaosong.com/sdsimulator/)
+
 ## Technologies 🛠️
 
 - **SDEverywhere Framework**: Converts Vensim models (*.mdl*) to JavaScript
